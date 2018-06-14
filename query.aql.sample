@@ -1,0 +1,11 @@
+items.find(
+	{
+		"type":"file",
+    "$and": [
+      {"created": {"$lte": "2017-01-01"} },
+      {"repo":{"$eq":"sidecar-ci"} }
+    ]
+	}
+)
+.include("name","created","path","repo","size")
+.sort({"$desc":["created"]})
